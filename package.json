@@ -1,14 +1,8 @@
 {
   "name": "project",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "cat-names": "^1.0.2",
-    "npm-run-all": "^4.1.3",
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2",
-    "react-scripts": "1.1.4"
-  },
+  "version": "1.0.0",
+  "description": "In order to test our react app connected to a server, we need to run **two** servers:",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "cd front && npm install && cd .. && cd back && npm install && cd ..",
@@ -16,17 +10,18 @@
     "client": "cd front && npm start",
     "start": "concurrently --kill-others-on-fail --names \"server client\" \"npm run server\" \"npm run client\""
   },
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
-  "main": "index.js",
-  "devDependencies": {},
-  "author": "",
-  "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SouadAli10/Sockets.git"
+    "url": "git+https://github.com/coditech/socket-basics.git"
   },
+  "author": "",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/SouadAli10/Sockets/issues"
+    "url": "https://github.com/coditech/socket-basics/issues"
   },
-  "homepage": "https://github.com/SouadAli10/Sockets#readme"
+  "homepage": "https://github.com/coditech/socket-basics#readme",
+  "dependencies": {
+    "concurrently": "^3.5.1"
+  },
+  "devDependencies": {}
 }

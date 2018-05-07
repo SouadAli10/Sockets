@@ -10,7 +10,7 @@ class App extends Component {
     const socket = io('http://localhost:8888');
 
 
-    this.setState({socket:socket})
+    this.setState({ socket: socket })
     socket.on('number:change', (globalNumber) => {
       this.setState({ globalNumber })
     })
