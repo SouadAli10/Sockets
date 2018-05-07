@@ -9,12 +9,21 @@ class App extends Component {
   componentDidMount() {
     const socket = io('http://localhost:8888');
 
-    this.setState({ socket })
 
+    this.setState({socket:socket})
     socket.on('number:change', (globalNumber) => {
       this.setState({ globalNumber })
     })
+    socket.on('user:new', () => {
+      console.log('a user has connected')
+    })
+    socket.on('user:new', (username) => {
+      console.log('a user called ' + username + ' has connected')
+    })
 
+    socket.on('user:me', (username) => {
+      this.setState({ username })
+    })
   }
 
   onIncrement = () => this.state.socket.emit('increment')
