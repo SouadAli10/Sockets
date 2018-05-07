@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import io from 'socket.io-client'
 
@@ -79,6 +78,11 @@ class App extends React.Component {
             : null
           )}
           <div>
+            <h3> message: {this.state.messages_list.map((message) =>
+                <div className="single-message">
+                  <h3>{message.username}</h3>
+                  <p>{message.message}</p>
+                </div>)}</h3>
           </div>
         </div>
       </div>
