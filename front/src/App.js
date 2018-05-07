@@ -21,5 +21,13 @@ class App extends Component{
     onDecrement = () => this.state.socket.emit('decrement')
     render(){
     // do something here to show the globalNumber and use increment and decrement
+    return (
+      <div>
+        hello
+        <onIncrement />
+        <onDecrement />
+      </div>
+)
     }
   }
+export default App;

@@ -20,5 +20,13 @@
   "main": "index.js",
   "devDependencies": {},
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SouadAli10/Sockets.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SouadAli10/Sockets/issues"
+  },
+  "homepage": "https://github.com/SouadAli10/Sockets#readme"
 }
