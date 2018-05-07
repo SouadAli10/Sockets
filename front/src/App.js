@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import io from 'socket.io-client';
 import './App.css';
-import io from 'socket.io-client'
+
 class App extends Component {
 
   state = { socket: null, globalNumber: 0 }
@@ -9,14 +9,12 @@ class App extends Component {
   componentDidMount() {
     const socket = io('http://localhost:8888');
 
+    this.setState({ socket })
 
-    this.setState({ socket: socket })
     socket.on('number:change', (globalNumber) => {
       this.setState({ globalNumber })
     })
-    socket.on('user:new', () => {
-      console.log('a user has connected')
-    })
+
     socket.on('user:new', (username) => {
       console.log('a user called ' + username + ' has connected')
     })
@@ -29,9 +27,10 @@ class App extends Component {
   onIncrement = () => this.state.socket.emit('increment')
   onDecrement = () => this.state.socket.emit('decrement')
   render() {
-    // do something here to show the globalNumber and use increment and decrement
+
     return (
       <div>
+        {/* {this.state.username} */}
         <div className="App">
           <h1>{this.state.globalNumber}</h1>
           <p className="App-intro">
@@ -39,8 +38,15 @@ class App extends Component {
             <button onClick={this.onDecrement}>-</button>
           </p>
         </div>
+        <form className="theTextToSend">
+          <input type="text" name="text" />
+          <button type="submit">Submit</button>
+        </form>
       </div>
+
     )
   }
 }
+
+
 export default App;
