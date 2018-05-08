@@ -42,7 +42,9 @@ class App extends React.Component {
     event.preventDefault()
     const form = event.target
     const message = form.message.value
+    this.setState(() => ({ message }));
     console.log(message)
+    
     this.state.socket.emit('text', message, this.state.username)
     // form.message.value=''
   }
@@ -77,12 +79,8 @@ class App extends React.Component {
             </ul>
             : null
           )}
-          <div>
-            <h3> message: {this.state.messages_list.map((message) =>
-                <div className="single-message">
-                  <h3>{message.username}</h3>
-                  <p>{message.message}</p>
-                </div>)}</h3>
+          <div className="App">
+            <h3>{this.state.username} : {this.state.message}</h3>
           </div>
         </div>
       </div>
